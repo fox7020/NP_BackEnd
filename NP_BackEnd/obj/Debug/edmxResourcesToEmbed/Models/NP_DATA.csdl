@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NPDATA" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="NP_Consumption">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="card_no" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="consumption_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="counter" Type="Guid" Nullable="false" />
+    <Property Name="fee" Type="Int32" Nullable="false" />
+    <Property Name="devidend" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NP_Counter">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="counter_name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="website" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="file_name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NP_Employee">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="emp_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="id" Type="String" MaxLength="7" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NP_Member">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="rec_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="card_no" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="devidend" Type="Int32" Nullable="false" />
+    <Property Name="del_yn" Type="Int32" Nullable="false" />
+    <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NP_Webnews">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="artitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="file_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="end_date" Type="DateTime" Precision="0" />
+    <Property Name="del_yn" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="NPDATAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="NP_Consumption" EntityType="Self.NP_Consumption" />
+    <EntitySet Name="NP_Counter" EntityType="Self.NP_Counter" />
+    <EntitySet Name="NP_Employee" EntityType="Self.NP_Employee" />
+    <EntitySet Name="NP_Member" EntityType="Self.NP_Member" />
+    <EntitySet Name="NP_Webnews" EntityType="Self.NP_Webnews" />
+  </EntityContainer>
+</Schema>

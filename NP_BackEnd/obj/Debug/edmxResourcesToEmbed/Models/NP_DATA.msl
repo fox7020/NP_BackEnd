@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NPDATAStoreContainer" CdmEntityContainer="NPDATAEntities">
+    <EntitySetMapping Name="NP_Consumption">
+      <EntityTypeMapping TypeName="NPDATA.NP_Consumption">
+        <MappingFragment StoreEntitySet="NP_Consumption">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="card_no" ColumnName="card_no" />
+          <ScalarProperty Name="consumption_date" ColumnName="consumption_date" />
+          <ScalarProperty Name="counter" ColumnName="counter" />
+          <ScalarProperty Name="fee" ColumnName="fee" />
+          <ScalarProperty Name="devidend" ColumnName="devidend" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NP_Counter">
+      <EntityTypeMapping TypeName="NPDATA.NP_Counter">
+        <MappingFragment StoreEntitySet="NP_Counter">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="counter_name" ColumnName="counter_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="website" ColumnName="website" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NP_Employee">
+      <EntityTypeMapping TypeName="NPDATA.NP_Employee">
+        <MappingFragment StoreEntitySet="NP_Employee">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NP_Member">
+      <EntityTypeMapping TypeName="NPDATA.NP_Member">
+        <MappingFragment StoreEntitySet="NP_Member">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="rec_date" ColumnName="rec_date" />
+          <ScalarProperty Name="card_no" ColumnName="card_no" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="devidend" ColumnName="devidend" />
+          <ScalarProperty Name="del_yn" ColumnName="del_yn" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NP_Webnews">
+      <EntityTypeMapping TypeName="NPDATA.NP_Webnews">
+        <MappingFragment StoreEntitySet="NP_Webnews">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="artitle" ColumnName="artitle" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="del_yn" ColumnName="del_yn" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

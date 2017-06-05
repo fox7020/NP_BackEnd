@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NPDATA.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="NP_Consumption">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="card_no" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="consumption_date" Type="datetime" Nullable="false" />
+    <Property Name="counter" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="fee" Type="int" Nullable="false" />
+    <Property Name="devidend" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NP_Counter">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="counter_name" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="description" Type="text" Nullable="false" />
+    <Property Name="tel" Type="nchar" MaxLength="10" />
+    <Property Name="website" Type="nchar" MaxLength="100" />
+    <Property Name="file_name" Type="nchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="NP_Employee">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="emp_name" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="id" Type="nchar" MaxLength="7" Nullable="false" />
+    <Property Name="password" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="remark" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="NP_Member">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="rec_date" Type="date" Nullable="false" />
+    <Property Name="card_no" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="gender" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="phone" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="devidend" Type="int" Nullable="false" />
+    <Property Name="del_yn" Type="int" Nullable="false" />
+    <Property Name="remark" Type="text" />
+  </EntityType>
+  <EntityType Name="NP_Webnews">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="title" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="artitle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="file_name" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="start_date" Type="date" Nullable="false" />
+    <Property Name="end_date" Type="date" />
+    <Property Name="del_yn" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="remark" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="NPDATAStoreContainer">
+    <EntitySet Name="NP_Consumption" EntityType="Self.NP_Consumption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NP_Counter" EntityType="Self.NP_Counter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NP_Employee" EntityType="Self.NP_Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NP_Member" EntityType="Self.NP_Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NP_Webnews" EntityType="Self.NP_Webnews" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

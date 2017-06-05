@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NPDATA.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NP_Consumption">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="card_no" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="consumption_date" Type="datetime" Nullable="false" />
+          <Property Name="counter" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fee" Type="int" Nullable="false" />
+          <Property Name="devidend" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NP_Counter">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="counter_name" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="tel" Type="nchar" MaxLength="10" />
+          <Property Name="website" Type="nchar" MaxLength="100" />
+          <Property Name="file_name" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="NP_Employee">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="emp_name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="id" Type="nchar" MaxLength="7" Nullable="false" />
+          <Property Name="password" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="remark" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NP_Member">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="rec_date" Type="date" Nullable="false" />
+          <Property Name="card_no" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="gender" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="phone" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="devidend" Type="int" Nullable="false" />
+          <Property Name="del_yn" Type="int" Nullable="false" />
+          <Property Name="remark" Type="text" />
+        </EntityType>
+        <EntityType Name="NP_Webnews">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="title" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="artitle" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="file_name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="start_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" />
+          <Property Name="del_yn" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="remark" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="NPDATAStoreContainer">
+          <EntitySet Name="NP_Consumption" EntityType="Self.NP_Consumption" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NP_Counter" EntityType="Self.NP_Counter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NP_Employee" EntityType="Self.NP_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NP_Member" EntityType="Self.NP_Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NP_Webnews" EntityType="Self.NP_Webnews" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NPDATA" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="NP_Consumption">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="card_no" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="consumption_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="counter" Type="Guid" Nullable="false" />
+          <Property Name="fee" Type="Int32" Nullable="false" />
+          <Property Name="devidend" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NP_Counter">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="counter_name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="website" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="file_name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NP_Employee">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="emp_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="String" MaxLength="7" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NP_Member">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="rec_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="card_no" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="devidend" Type="Int32" Nullable="false" />
+          <Property Name="del_yn" Type="Int32" Nullable="false" />
+          <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NP_Webnews">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="artitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="file_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="del_yn" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="NPDATAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NP_Consumption" EntityType="Self.NP_Consumption" />
+          <EntitySet Name="NP_Counter" EntityType="Self.NP_Counter" />
+          <EntitySet Name="NP_Employee" EntityType="Self.NP_Employee" />
+          <EntitySet Name="NP_Member" EntityType="Self.NP_Member" />
+          <EntitySet Name="NP_Webnews" EntityType="Self.NP_Webnews" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NPDATAStoreContainer" CdmEntityContainer="NPDATAEntities">
+          <EntitySetMapping Name="NP_Consumption">
+            <EntityTypeMapping TypeName="NPDATA.NP_Consumption">
+              <MappingFragment StoreEntitySet="NP_Consumption">
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="card_no" ColumnName="card_no" />
+                <ScalarProperty Name="consumption_date" ColumnName="consumption_date" />
+                <ScalarProperty Name="counter" ColumnName="counter" />
+                <ScalarProperty Name="fee" ColumnName="fee" />
+                <ScalarProperty Name="devidend" ColumnName="devidend" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NP_Counter">
+            <EntityTypeMapping TypeName="NPDATA.NP_Counter">
+              <MappingFragment StoreEntitySet="NP_Counter">
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="counter_name" ColumnName="counter_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="file_name" ColumnName="file_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NP_Employee">
+            <EntityTypeMapping TypeName="NPDATA.NP_Employee">
+              <MappingFragment StoreEntitySet="NP_Employee">
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NP_Member">
+            <EntityTypeMapping TypeName="NPDATA.NP_Member">
+              <MappingFragment StoreEntitySet="NP_Member">
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="rec_date" ColumnName="rec_date" />
+                <ScalarProperty Name="card_no" ColumnName="card_no" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="devidend" ColumnName="devidend" />
+                <ScalarProperty Name="del_yn" ColumnName="del_yn" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NP_Webnews">
+            <EntityTypeMapping TypeName="NPDATA.NP_Webnews">
+              <MappingFragment StoreEntitySet="NP_Webnews">
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="artitle" ColumnName="artitle" />
+                <ScalarProperty Name="file_name" ColumnName="file_name" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="del_yn" ColumnName="del_yn" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
